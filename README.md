@@ -49,7 +49,7 @@ then we determine its mean and standard deviation and then add next points step 
 
 ```bash
 $ git clone https://github.com/moemenhusseinshaaban/labforward-challenge.git
-$ cd PATH_To_LABFORWARD_CHALLENGE/
+$ cd PATH_To_LABFORWARD_CHALLENGE/labforward-docker
 ```
 
 - run `docker-compose build`
