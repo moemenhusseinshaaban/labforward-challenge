@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/data_points/sudden_peaks": {
+      "post": {
+        "summary": "Retrieves signals of zeros for normal points and ones for sudden peaks",
+        "tags": [
+          "Data Points"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "measured_data",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "date_from": {
+                  "type": "string",
+                  "description": "required format: YYYY-MM-DD"
+                },
+                "date_to": {
+                  "type": "string",
+                  "description": "required format: YYYY-MM-DD"
+                },
+                "threshold": {
+                  "type": "float",
+                  "description": "limits of normal points"
+                }
+              },
+              "required": [
+                "date_from",
+                "date_to",
+                "threshold'"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return Sudden Peaks of Data Points"
+          },
+          "422": {
+            "description": "invalid record"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+version: '3'
+networks:
+  private_network:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.0.2.0/24
+services:
+  db:
+    image: postgres:9.6
+    env_file: db.env
+    volumes:
+      - ./../labforward-volumes/db:/var/lib/postgresql/data
+    networks:
+      private_network:
+        ipv4_address: "10.0.2.4"
+  dbtest:
+    image: postgres:9.6
+    env_file: dbtest.env
+    volumes:
+      - ./../labforward-volumes/test_db:/var/lib/postgresql/data
+    networks:
+      private_network:
+        ipv4_address: "10.0.2.6"
+  web:
+    build: .
+    env_file: app.env
+    container_name: labforward-docker-web
+    volumes:
+      - ./labforward:/application
+    ports:
+      - "3000:3000"
+    networks:
+      private_network:
+        ipv4_address: "10.0.2.8"
