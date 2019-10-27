@@ -84,7 +84,7 @@ $ cd PATH_To_LABFORWARD_CHALLENGE/labforward-docker
 ```
 {
   "date_from": "2019-10-10",
-  "date_to": "2019-10-10",
+  "date_to": "2019-10-14",
   "threshold": 3
 }
 ```
